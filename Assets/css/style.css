@@ -54,7 +54,7 @@ main {
 
 /* HIDE ON LOAD */
 
-#quiz, #finish, #scores {
+#quiz, #result, #finish, #scores {
     display: none;
 } 
 

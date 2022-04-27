@@ -17,21 +17,22 @@
       <section id="start">
         <h1 id="title">Coding Challenge Quiz</h1>
         <p id="subtitle">Text about this section</p>
-        <button>Start Quiz</button>
+        <button id="quiz-start-btn">Start Quiz</button>
       </section>
 
-      <section id="quiz" >
-        <!-- style="display: none;" -->
-        <h2 id="question">This is the quiz question</h2>
+      <section id="quiz">
+        <h2 id="question"></h2>
         <div id="choices">
-          <button id="choice-1">Answer 1</button>
-          <button id="choice-2">Answer 2</button>
-          <button id="choice-3">Answer 3</button>
-          <button id="choice-4">Answer 4</button>
-          <button id="choice-5">Answer 5</button>
-          </div>
-        <p id="correct">Correct!</p>
-        <p id="wrong">Wrong!</p>
+          <button id="c1"></button>
+          <button id="c2"></button>
+          <button id="c3"></button>
+          <button id="c4"></button>
+          <button id="c5"></button>
+        </div>
+        <div id="result">
+          <p id="correct">Correct!</p>
+          <p id="wrong">Wrong!</p>
+        </div>
       </section>
 
       <section id="finish">
@@ -45,7 +46,7 @@
       <section id="scores">
         <h3>High Scores</h3>
         <ul id="score-list">
-            <li>1. PW : 22</li>
+          <li>1. PW : 22</li>
         </ul>
         <button id="restart">Try Again</button>
         <button id="clear">Clear High Scores</button>
