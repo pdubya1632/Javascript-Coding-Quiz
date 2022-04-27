@@ -35,35 +35,52 @@ const Questions = [
   },
 ];
 
-const startSection = document.getElementById('start');
-const startQuizBtn = document.getElementById('quiz-start-btn');
+const startSection = document.getElementById("start");
+const startQuizBtn = document.getElementById("quiz-start-btn");
 
-const quizSection = document.getElementById('quiz');
-const finishSection = document.getElementById('finish');
-const scoresSection = document.getElementById('scores');
+const quizSection = document.getElementById("quiz");
+const next = document.getElementById("next");
 
-startQuizBtn.addEventListener('click', () => {
-    startSection.style.display = 'none';
-    quiz(0);
+const finishSection = document.getElementById("finish");
+const scoresSection = document.getElementById("scores");
+
+startQuizBtn.addEventListener("click", () => {
+  startSection.style.display = "none";
+  quiz(0);
 });
 
+let score = 0;
+
 function quiz(id) {
-    
-    const question = document.getElementById('question');
+  const question = document.getElementById("question");
+  const correct = document.getElementById("correct");
+  const wrong = document.getElementById("wrong");
 
-    question.innerText = Questions[id].question;
+  // insert question
+  question.innerText = Questions[id].question;
 
-    const choices = [
-        document.getElementById('c1'),
-        document.getElementById('c2'),
-        document.getElementById('c3'),
-        document.getElementById('c4'),
-        document.getElementById('c5')
-    ];
+  // grab all choice li's on page
+  const choiceItems = document.querySelectorAll(".c-item");
 
-    for (i = 0; i < choices.length; i++) {
-        choices[i].innerText = Questions[id].choices[i].text;
-    }
+  // attach text and isCorrect boolean to all li's
+  for (const [i, c] of choiceItems.entries()) {
+    c.innerText = Questions[id].choices[i].text;
 
-    quizSection.style.display = 'block';
+    let isCorrect = Questions[id].choices[i].isCorrect;
+
+    c.addEventListener("click", function () {
+      if (isCorrect) {
+        score++;
+        correct.style.display = "block";
+      } else {
+        wrong.style.display = "block";
+      }
+      next.style.display = "block";
+    });
+
+    //c.disabled = true;
+  }
+
+  // display quiz
+  quizSection.style.display = "block";
 }
