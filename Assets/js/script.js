@@ -61,6 +61,24 @@ const questionCount = Object.keys(Questions).length;
 
 startQuizBtn.addEventListener("click", () => {
   startSection.style.display = "none";
+  
+  // set counter start to be text that's within timer span
+  let counter = document.getElementById("timer").innerText; 
+  
+  // count down once quiz is started
+  setInterval( function(){
+    counter--;
+  
+    if( counter >= 0 ){
+      id = document.getElementById("timer");
+      id.innerHTML = counter;
+    }
+  
+    if( counter === 0 ){
+      id.innerHTML = "timer done";
+    }
+  }, 1000);
+
   quiz(currentQuestion);
 });
 
