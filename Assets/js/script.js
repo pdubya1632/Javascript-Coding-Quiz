@@ -73,16 +73,18 @@ nextBtn.addEventListener("click", () => {
 
 function quiz(id) {
   if (id === questionCount) {
-    quizSection.style.display = "none";
-
     localStorage.setItem("totalScore", score);
     totalScoreTxt.innerHTML = localStorage.getItem("totalScore");
 
     finishSection.style.display = "block";
+    quizSection.style.display = "none";
   } else {
     // show current question
     console.log("current question: " + currentQuestion);
     console.log("current score: " + score);
+
+    // display quiz
+    quizSection.style.display = "block";
 
     // insert question text
     question.innerText = Questions[id].question;
@@ -108,14 +110,11 @@ function quiz(id) {
         } else {
           correctTxt.style.display = "none";
           wrongTxt.style.display = "block";
-          console.log("wrong...you get zero points"); 
+          console.log("wrong...you get zero points");
         }
         //choices.disabled = true;
         nextBtn.style.display = "block";
       });
     }
   }
-
-  // display quiz
-  quizSection.style.display = "block";
 }
