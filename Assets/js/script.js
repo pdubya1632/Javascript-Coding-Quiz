@@ -40,14 +40,15 @@ const quizSection = document.getElementById("quiz");
 const finishSection = document.getElementById("finish");
 const scoresSection = document.getElementById("scores");
 
-const startQuizBtn = document.getElementById("quiz-start-btn");
-const nextBtn = document.getElementById("nextBtn");
-
 const question = document.getElementById("question");
 const choices = document.getElementById("choices");
 // const result = document.getElementById("result");
 const correctTxt = document.getElementById("correct");
 const wrongTxt = document.getElementById("wrong");
+
+const startQuizBtn = document.getElementById("quiz-start-btn");
+const choiceBtns = choices.getElementsByTagName('*');
+const nextBtn = document.getElementById("nextBtn");
 
 const totalScoreTxt = document.getElementById("quiz-score");
 
@@ -67,6 +68,12 @@ nextBtn.addEventListener("click", () => {
   nextBtn.style.display = "none";
   correctTxt.style.display = "none";
   wrongTxt.style.display = "none";
+  
+  // enable choice buttons
+  for (let node of choiceBtns) {
+    node.disabled = false;
+  }
+
   currentQuestion++;
   quiz(currentQuestion);
 });
@@ -112,7 +119,13 @@ function quiz(id) {
           wrongTxt.style.display = "block";
           console.log("wrong...you get zero points");
         }
-        //choices.disabled = true;
+        
+        // disable choices after selection is made
+        for (let node of choiceBtns) {
+            node.disabled = true;
+        }
+
+        // show next button
         nextBtn.style.display = "block";
       });
     }
