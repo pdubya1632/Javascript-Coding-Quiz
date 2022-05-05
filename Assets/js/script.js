@@ -7,8 +7,7 @@ const Questions = [
       { text: "Answer 1-1", isCorrect: false },
       { text: "Answer 1-2", isCorrect: true },
       { text: "Answer 1-3", isCorrect: false },
-      { text: "Answer 1-4", isCorrect: false },
-      { text: "Answer 1-5", isCorrect: false },
+      { text: "Answer 1-4", isCorrect: false }
     ],
   },
   {
@@ -18,8 +17,7 @@ const Questions = [
       { text: "Answer 2-1", isCorrect: false },
       { text: "Answer 2-2", isCorrect: false },
       { text: "Answer 2-3", isCorrect: false },
-      { text: "Answer 2-4", isCorrect: true },
-      { text: "Answer 2-5", isCorrect: false },
+      { text: "Answer 2-4", isCorrect: true }
     ],
   },
   {
@@ -29,8 +27,7 @@ const Questions = [
       { text: "Answer 3-1", isCorrect: true },
       { text: "Answer 3-2", isCorrect: false },
       { text: "Answer 3-3", isCorrect: false },
-      { text: "Answer 3-4", isCorrect: false },
-      { text: "Answer 3-5", isCorrect: false },
+      { text: "Answer 3-4", isCorrect: false }
     ],
   },
 ];
@@ -42,7 +39,6 @@ const scoresSection = document.getElementById("scores");
 
 const question = document.getElementById("question");
 const choices = document.getElementById("choices");
-// const result = document.getElementById("result");
 const correctTxt = document.getElementById("correct");
 const wrongTxt = document.getElementById("wrong");
 
@@ -54,12 +50,12 @@ const submitBtn = document.getElementById("submit-btn");
 const initialsTxt = document.getElementById("initials").value;
 const totalScoreTxt = document.getElementById("quiz-score");
 
-// set score to 0 and current question to 0
+// set score to 0, current question to 0, and set total number of questions
 let score = 0;
 let currentQuestion = 0;
 
 // get total number of questions
-const questionCount = Object.keys(Questions).length;
+const questionCount = Questions.length;
 
 startQuizBtn.addEventListener("click", () => {
   startSection.style.display = "none";
@@ -77,7 +73,8 @@ startQuizBtn.addEventListener("click", () => {
     }
   
     if( counter === 0 ){
-      id.innerHTML = "timer done";
+      window.alert("time is up!");
+      id.innerHTML = "30";
     }
   }, 1000);
 
