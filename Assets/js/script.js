@@ -48,7 +48,7 @@ const choiceBtns = choices.getElementsByTagName('*');
 const nextBtn = document.getElementById("nextBtn");
 const submitBtn = document.getElementById("submit-btn");
 
-const initialsTxt = document.getElementById("initials").value;
+const initialsTxt = document.getElementById("initials");
 const totalScoreTxt = document.getElementById("quiz-score");
 
 // set score to 0, current question to 0, and set total number of questions
@@ -57,27 +57,44 @@ let currentQuestion = 0;
 
 // get total number of questions
 const questionCount = Questions.length;
+const startTime = 30;
+
+submitBtn.addEventListener("click", () => {
+
+  // log initials and score to browser
+  localStorage.setItem(initialsTxt.value, score);
+
+  finishSection.display = "none";
+  scoresSection.display = "block";
+  timeLeft.innerHTML = startTime;
+});
 
 startQuizBtn.addEventListener("click", () => {
   startSection.style.display = "none";
   
   // set counter start to be text that's within timer span
-  let counter = document.getElementById("timer").innerText; 
-  
-  // count down once quiz is started
-  setInterval( function(){
+  let counter = startTime; 
+
+  // start timer countdown function
+  const interval = setInterval(startTimer, 1000);
+    
+  function startTimer() {
     counter--;
   
-    if( counter >= 0 ){
-      id = document.getElementById("timer");
-      id.innerHTML = counter;
+    if( counter >= 0 ) {
+      timeLeft = document.getElementById("timer");
+      timeLeft.innerHTML = counter;
     }
-  
-    if( counter === 0 && currentQuestion <= questionCount ){
-      window.alert("time is up!");
-      id.innerHTML = "30";
-    }
-  }, 1000);
+    else if( counter === 0 && currentQuestion <= questionCount ) {
+      window.alert("time is up! start over");
+      resetTimer();
+    } 
+  };
+
+  function resetTimer() {
+    clearInterval(interval);
+    document.getElementById("timer").innerText = startTime;
+  };
 
   quiz(currentQuestion);
 });
@@ -97,13 +114,18 @@ nextBtn.addEventListener("click", () => {
   quiz(currentQuestion);
 });
 
+// SUBMIT BUTTON CLICK
 submitBtn.addEventListener("click", () => {
-  const person = {
-    name: initialsTxt,
-    finalScore: score,
-  }
 
-  window.localStorage.setItem('user', JSON.stringify(person));
+  // log initials and score to browser
+  localStorage.setItem(initialsTxt.value, score);
+
+  finishSection.style.display = "none";
+  timeLeft.innerHTML = startTime;
+
+  const scoreList = document.getElementById("score-list");
+  scoresSection.style.display = "block";
+
 });
 
 function quiz(id) {

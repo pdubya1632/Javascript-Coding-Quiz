@@ -36,9 +36,9 @@ button:hover {
 
 .section-btn {
     background-color: purple;
-    border: none;
     border: 1px solid purple;
     width: 49%;
+    margin-top: 20px;
 }
 
 .section-btn:hover {
