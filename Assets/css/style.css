@@ -64,7 +64,7 @@ header a {
 }
 
 main {
-    width: 60%;
+    width: 50%;
     margin: 0 auto;
 }
 
@@ -80,9 +80,15 @@ main {
     background-color: #19234a;
 }
 
+#result {
+    border: 1px solid #ccc;
+    padding: 5px 20px;
+    margin: 20px 0;
+}
+
 /* HIDE ON LOAD */
 
-#quiz, #correct, #wrong, #nextBtn, #finish, #scores {
+#quiz, #correct, #wrong, #nextBtn, #finish, #scores, #result {
     display: none;
 }
 

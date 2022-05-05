@@ -39,6 +39,7 @@ const scoresSection = document.getElementById("scores");
 
 const question = document.getElementById("question");
 const choices = document.getElementById("choices");
+const result = document.getElementById("result");
 const correctTxt = document.getElementById("correct");
 const wrongTxt = document.getElementById("wrong");
 
@@ -72,7 +73,7 @@ startQuizBtn.addEventListener("click", () => {
       id.innerHTML = counter;
     }
   
-    if( counter === 0 ){
+    if( counter === 0 && currentQuestion <= questionCount ){
       window.alert("time is up!");
       id.innerHTML = "30";
     }
@@ -83,6 +84,7 @@ startQuizBtn.addEventListener("click", () => {
 
 nextBtn.addEventListener("click", () => {
   nextBtn.style.display = "none";
+  result.style.display = "none";
   correctTxt.style.display = "none";
   wrongTxt.style.display = "none";
   
@@ -138,10 +140,12 @@ function quiz(id) {
       c.addEventListener("click", function () {
         if (isCorrect) {
           score++;
+          result.style.display = "block";
           correctTxt.style.display = "block";
           wrongTxt.style.display = "none";
           console.log("correct!");
         } else {
+          result.style.display = "block";
           correctTxt.style.display = "none";
           wrongTxt.style.display = "block";
           console.log("wrong...you get zero points");
