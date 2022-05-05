@@ -49,7 +49,9 @@ const wrongTxt = document.getElementById("wrong");
 const startQuizBtn = document.getElementById("quiz-start-btn");
 const choiceBtns = choices.getElementsByTagName('*');
 const nextBtn = document.getElementById("nextBtn");
+const submitBtn = document.getElementById("submit-btn");
 
+const initialsTxt = document.getElementById("initials").value;
 const totalScoreTxt = document.getElementById("quiz-score");
 
 // set score to 0 and current question to 0
@@ -96,10 +98,20 @@ nextBtn.addEventListener("click", () => {
   quiz(currentQuestion);
 });
 
+submitBtn.addEventListener("click", () => {
+  const person = {
+    name: initialsTxt,
+    finalScore: score,
+  }
+
+  window.localStorage.setItem('user', JSON.stringify(person));
+});
+
 function quiz(id) {
   if (id === questionCount) {
-    localStorage.setItem("totalScore", score);
-    totalScoreTxt.innerHTML = localStorage.getItem("totalScore");
+    totalScoreTxt.innerHTML = score;
+
+    clearInterval();
 
     finishSection.style.display = "block";
     quizSection.style.display = "none";
