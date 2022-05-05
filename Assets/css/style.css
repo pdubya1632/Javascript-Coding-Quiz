@@ -28,14 +28,20 @@ button {
     padding: 10px;
     margin-bottom: 10px;
     color: #fff;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.section-btn {
     background-color: purple;
     border: none;
     border: 1px solid purple;
     width: 49%;
 }
 
-button:hover {
-    cursor: pointer;
+.section-btn:hover {
     background-color: rgb(150, 0, 150);
     border: 1px solid #fff;
 }
@@ -62,14 +68,14 @@ main {
     margin: 0 auto;
 }
 
-#quiz button {
+.choice {
     background-color: #10162F;
     border: 1px solid purple;
     width: 100%;
     padding: 20px;
 }
 
-#quiz button:hover {
+.choice:hover {
     border: 1px solid #fff;
     background-color: #19234a;
 }

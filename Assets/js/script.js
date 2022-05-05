@@ -124,7 +124,7 @@ function quiz(id) {
     question.innerText = Questions[id].question;
 
     // grab all choice buttons on page
-    const choiceItems = document.querySelectorAll(".c-item");
+    const choiceItems = document.querySelectorAll(".choice");
 
     // attach text and isCorrect boolean to all buttons
     for (const [i, c] of choiceItems.entries()) {
