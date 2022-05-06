@@ -91,7 +91,11 @@ main {
 }
 
 #score-list li {
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    border: 1px solid violet;
     text-transform: uppercase;
+    text-align: center;
 }
 
 /* HIDE ON LOAD */
@@ -107,16 +111,4 @@ main {
 #result,
 #view-scores {
     display: none;
-}
-
-/* QUIZ */
-
-
-
-/* SCORES */
-
-#score-list li {
-    margin-bottom: 20px;
-    padding: 5px 10px;
-    background-color: violet;
 }

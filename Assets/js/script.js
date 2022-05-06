@@ -53,6 +53,7 @@ const choices = document.getElementById("choices");
 const result = document.getElementById("result");
 const correctTxt = document.getElementById("correct");
 const wrongTxt = document.getElementById("wrong");
+const scoreList = document.getElementById("score-list");
 
 const startQuizBtn = document.getElementById("quiz-start-btn");
 const choiceBtns = choices.getElementsByTagName("*");
@@ -151,22 +152,38 @@ nextBtn.addEventListener("click", () => {
 submitBtn.addEventListener("click", () => {
   
   // log initials and score to browser
-  localStorage.setItem(initialsTxt.value, score);
+  const person = {
+    personName: initialsTxt.value,
+    personScore: score,
+  }
+
+  // create ID for each score submitted
+  let scoreID = Date.now();
+  window.localStorage.setItem(scoreID, JSON.stringify(person));
+
 
   // reset currentQuestion and clear initials field
   currentQuestion = 0;
   initialsTxt.value = "";
 
   displayToggle.hide(finishSection);
-  displayToggle.show(scoresSection);
 
-  // add all scores to ul
-  for (let i = 0; i < localStorage.length; i++) {
-    keys = Object.keys(localStorage);
-    document.getElementById("score-list").innerHTML += "<li>" + localStorage.getItem(keys[i]) + "</li>";
-  }
+  displayScores();
 
 });
+
+function displayScores() {
+
+const keys = Object.keys(localStorage);
+  for (let key of keys) {
+    //let scoreArray = [];
+    //scoreArray.push(JSON.parse(localStorage.getItem(key)));
+    let scoreData = JSON.parse(localStorage.getItem(key));
+    scoreList.innerHTML += "<li>" + scoreData.personName + " : " + scoreData.personScore + "</li>";
+  }
+
+  displayToggle.show(scoresSection);
+}
 
 // TRY AGAIN
 tryAgainBtn.addEventListener("click", () => {
@@ -184,6 +201,7 @@ tryAgainBtn.addEventListener("click", () => {
 // CLEAR HIGH SCORES
 clearBtn.addEventListener("click", () => {
   localStorage.clear();
+  scoreList.innerHTML = "";
   displayToggle.hide(viewScores);
 });
 
