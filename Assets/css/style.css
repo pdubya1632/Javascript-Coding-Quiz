@@ -88,7 +88,15 @@ main {
 
 /* HIDE ON LOAD */
 
-#quiz, #correct, #wrong, #nextBtn, #finish, #scores, #result {
+#quiz,
+#correct,
+#wrong,
+#next-btn,
+#finish-btn,
+#finish,
+#scores,
+#result,
+#view-scores {
     display: none;
 }
 
