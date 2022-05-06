@@ -7,11 +7,13 @@
     <link rel="stylesheet" href="Assets/css/style.css" />
   </head>
   <body>
+    <div id="start-over-modal">
+      <button id="start-over-btn" class="section-btn">Start Over</button>
+    </div>
     <header>
       <ul>
-        
-        <li>Time Left: <span id="timer">30</span></li>
-        <li><a href="#high-scores" id="view-scores">View High Scores</a></li>
+        <li>Time Left: <span id="timer"></span></li>
+        <li id="view-scores"><a href="#high-scores">View High Scores</a></li>
       </ul>
     </header>
     <main>
@@ -34,7 +36,7 @@
           <p id="wrong">Wrong!</p>
         </div>
         <div id="next">
-          <button id="nextBtn" class="section-btn">Next ></button>
+          <button id="next-btn" class="section-btn">Next</button>
         </div>
       </section>
 
@@ -42,17 +44,17 @@
         <h3>All done!</h3>
         <p>Here is your score: <span id="quiz-score"></span></p>
         <label for="initials">Enter your initials:</label>
-        <input id="initials" placeholder="XXX" />
-        <button type="submit" id="submit-btn" class="section-btn">Submit</button>
+        <input id="initials" placeholder="XXX" maxlength="3" />
+        <button type="submit" id="submit-btn" class="section-btn">
+          Submit
+        </button>
       </section>
 
       <section id="scores">
         <h3>High Scores</h3>
-        <ul id="score-list">
-          
-        </ul>
-        <button id="restart" class="section-btn">Try Again</button>
-        <button id="clear" class="section-btn">Clear High Scores</button>
+        <ul id="score-list"></ul>
+        <button id="tryAgain-btn" class="section-btn">Try Again</button>
+        <button id="clear-btn" class="section-btn">Clear High Scores</button>
       </section>
     </main>
     <script src="Assets/js/script.js"></script>

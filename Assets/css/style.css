@@ -80,10 +80,18 @@ main {
     background-color: #19234a;
 }
 
+#initials {
+    text-transform: uppercase;
+}
+
 #result {
     border: 1px solid #ccc;
     padding: 5px 20px;
     margin: 20px 0;
+}
+
+#score-list li {
+    text-transform: uppercase;
 }
 
 /* HIDE ON LOAD */
@@ -92,6 +100,7 @@ main {
 #correct,
 #wrong,
 #next-btn,
+#start-over-modal,
 #finish-btn,
 #finish,
 #scores,
