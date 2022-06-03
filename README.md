@@ -1,4 +1,4 @@
-# UWCB-04-Homework
+# Javascript Coding Quiz
 UW Coding Bootcamp : Homework 04
 
 ## Description
