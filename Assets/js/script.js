@@ -3,51 +3,56 @@ const QuizContent = [
   {
     id: 1,
     question: "Inside which HTML element do we put our JS code?",
-    choices: [
-      { text: "<js>", isCorrect: false },
-      { text: "<script>", isCorrect: true },
-      { text: "<javascript>", isCorrect: false },
-      { text: "<scripts>", isCorrect: false },
-    ],
+    choices: {
+      a: "<js>",
+      b: "<script>",
+      c: "<javascript>",
+      d: "<scripts>"
+    },
+    correctAnswer: "b",
   },
   {
     id: 2,
     question: "How do you write 'Hello World' in an alert box?",
-    choices: [
-      { text: "alertBox('Hello World')", isCorrect: false },
-      { text: "msgBox('Hello World')", isCorrect: false },
-      { text: "alert('Hello World')", isCorrect: true },
-      { text: "msg('Hello World')", isCorrect: false },
-    ],
+    choices: {
+      a: "alertBox('Hello World')",
+      b: "msgBox('Hello World')",
+      c: "alert('Hello World')",
+      d: "msg('Hello World')",
+    },
+    correctAnswer: "c",
   },
   {
     id: 3,
     question: "What is the correct way to write a JavaScript array?",
-    choices: [
-      { text: 'var colors = ["red", "green", "blue"]', isCorrect: true },
-      { text: 'var colors = (1:"red", 2:"green", 3:"blue")', isCorrect: false },
-      { text: 'var colors = 1 = ("red"), 2 = ("green"), 3 = ("blue")', isCorrect: false },
-      { text: 'var colors = "red", "green", "blue"', isCorrect: false },
-    ],
+    choices: {
+      a: 'var colors = ["red", "green", "blue"]',
+      b: 'var colors = (1:"red", 2:"green", 3:"blue")',
+      c: 'var colors = 1 = ("red"), 2 = ("green"), 3 = ("blue")',
+      d: 'var colors = "red", "green", "blue"',
+    },
+    correctAnswer: "a",
   },
   {
     id: 4,
     question: "Which event occurs when the user clicks on an HTML element?",
-    choices: [
-      { text: "onmouseover", isCorrect: false },
-      { text: "onclick", isCorrect: true },
-      { text: "onchange", isCorrect: false },
-      { text: "onmouseclick", isCorrect: false },
-    ],
+    choices: {
+      a: "onmouseover",
+      b: "onclick",
+      c: "onchange",
+      d: "onmouseclick",
+    },
+    correctAnswer: "b",
   },
   {
     id: 5,
     question: 'How do write an IF statement testing that "i" is NOT equal to 5?',
-    choices: [
-      { text: "if (i <> 5)", isCorrect: false },
-      { text: "if i <> 5", isCorrect: false },
-      { text: "if i =! 5 then", isCorrect: false },
-      { text: "if (i != 5)", isCorrect: true }
-    ],
+    choices: {
+      a: "if (i <> 5)",
+      b: "if i <> 5",
+      c: "if i =! 5 then",
+      d: "if (i != 5)",
+    },
+    correctAnswer: "d",
   },
 ];
