@@ -17,6 +17,20 @@ body {
     color: #fff;
 }
 
+/* HIDE ON LOAD */
+#correct,
+#wrong,
+#next-btn,
+#start-over-modal,
+#finish-btn,
+#finish,
+#scores,
+#result,
+#view-scores,
+.card {
+    display: none;
+}
+
 h2 {
     font-size: 1.2em;
 }
@@ -102,17 +116,6 @@ main {
     text-align: center;
 }
 
-/* HIDE ON LOAD */
-
-#quiz,
-#correct,
-#wrong,
-#next-btn,
-#start-over-modal,
-#finish-btn,
-#finish,
-#scores,
-#result,
-#view-scores {
-    display: none;
+.active-card {
+    display: inline-block;
 }

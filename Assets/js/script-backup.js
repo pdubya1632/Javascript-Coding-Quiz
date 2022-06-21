@@ -62,7 +62,7 @@ const displayToggle = {
     id.style.display = "none";
   },
   inline: function (id) {
-    id.style.display = "inline";
+    id.style.display = "inline-block";
   },
 };
 
