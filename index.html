@@ -1,63 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Coding Quiz</title>
-    <link rel="stylesheet" href="Assets/css/style.css" />
-  </head>
-  <body>
-    <div id="start-over-modal">
-      <button id="start-over-btn" class="section-btn">Start Over</button>
-    </div>
-    <header>
-      <ul>
-        <li>Time Left: <span id="timer"></span></li>
-        <li id="view-scores"><a href="#high-scores">View High Scores</a></li>
-      </ul>
-    </header>
-    <main>
-      <section id="start">
-        <h1 id="title">Coding Challenge Quiz</h1>
-        <p id="subtitle">Welcome to the wonderful world of Javascript! In this quiz, you'll have 30 seconds to answer 5 questions.</p>
-        <p>Your final score will be based on the total time left on the clock + 1 point for each correct answer. At the end of the Quiz, your total score will be displayed.</p>
-        <button id="quiz-start-btn" class="section-btn">Start Quiz</button>
-      </section>
 
-      <section id="quiz">
-        <h2 id="question"></h2>
-        <div id="choices">
-          <button id="c1" class="choice"></button>
-          <button id="c2" class="choice"></button>
-          <button id="c3" class="choice"></button>
-          <button id="c4" class="choice"></button>
-        </div>
-        <div id="result">
-          <p id="correct">Correct!</p>
-          <p id="wrong">Wrong!</p>
-        </div>
-        <div id="next">
-          <button id="next-btn" class="section-btn">Next</button>
-        </div>
-      </section>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coding Quiz</title>
+  <link rel="stylesheet" href="Assets/css/style.css" />
+</head>
 
-      <section id="finish">
-        <h3>All done!</h3>
-        <p>Here is your score: <span id="quiz-score"></span></p>
-        <label for="initials">Enter your initials:</label>
-        <input id="initials" placeholder="XXX" maxlength="3" />
-        <button type="submit" id="submit-btn" class="section-btn">
-          Submit
-        </button>
-      </section>
+<body>
+  <div id="start-over-modal">
+    <button id="start-over-btn" class="section-btn">Start Over</button>
+  </div>
+  <header>
+    <ul>
+      <li>Time Left: <span id="timer"></span></li>
+      <li id="view-scores"><a href="#high-scores">View High Scores</a></li>
+    </ul>
+  </header>
+  <main>
+    <section id="start">
+      <h1 id="title">Coding Challenge Quiz</h1>
+      <p id="subtitle">Welcome to the wonderful world of Javascript! In this quiz, you'll have 30 seconds to answer 5
+        questions.</p>
+      <p>Your final score will be based on the total time left on the clock + 1 point for each correct answer. At the
+        end of the Quiz, your total score will be displayed.</p>
+      <button id="quiz-start-btn" class="section-btn">Start Quiz</button>
+    </section>
 
-      <section id="scores">
-        <h3>High Scores</h3>
-        <ul id="score-list"></ul>
-        <button id="tryAgain-btn" class="section-btn">Try Again</button>
-        <button id="clear-btn" class="section-btn">Clear High Scores</button>
-      </section>
-    </main>
-    <script src="Assets/js/script.js"></script>
-  </body>
+    <section class="quiz-container">
+      <div id="quiz"></div>
+    </section>
+    <!-- <button id="previous">Previous Question</button> -->
+    <button id="next">Next</button>
+    <button id="submit">Submit Quiz</button>
+    <section id="results"></section>
+    <section id="finish"></section>
+    <section id="scores"></section>
+
+  </main>
+  <script src="Assets/js/script.js"></script>
+</body>
+
 </html>
