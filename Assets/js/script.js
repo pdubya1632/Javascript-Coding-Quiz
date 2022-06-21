@@ -2,42 +2,52 @@
 const QuizContent = [
   {
     id: 1,
-    question: "Question one",
+    question: "Inside which HTML element do we put our JS code?",
     choices: [
-      { text: "Answer 1-1", isCorrect: false },
-      { text: "Answer 1-2", isCorrect: true },
-      { text: "Answer 1-3", isCorrect: false },
-      { text: "Answer 1-4", isCorrect: false },
+      { text: "<js>", isCorrect: false },
+      { text: "<script>", isCorrect: true },
+      { text: "<javascript>", isCorrect: false },
+      { text: "<scripts>", isCorrect: false },
     ],
   },
   {
     id: 2,
-    question: "Question two",
+    question: "How do you write 'Hello World' in an alert box?",
     choices: [
-      { text: "Answer 2-1", isCorrect: false },
-      { text: "Answer 2-2", isCorrect: false },
-      { text: "Answer 2-3", isCorrect: false },
-      { text: "Answer 2-4", isCorrect: true },
+      { text: "alertBox('Hello World')", isCorrect: false },
+      { text: "msgBox('Hello World')", isCorrect: false },
+      { text: "alert('Hello World')", isCorrect: true },
+      { text: "msg('Hello World')", isCorrect: false },
     ],
   },
   {
     id: 3,
-    question: "Question three",
+    question: "What is the correct way to write a JavaScript array?",
     choices: [
-      { text: "Answer 3-1", isCorrect: true },
-      { text: "Answer 3-2", isCorrect: false },
-      { text: "Answer 3-3", isCorrect: false },
-      { text: "Answer 3-4", isCorrect: false },
+      { text: 'var colors = ["red", "green", "blue"]', isCorrect: true },
+      { text: 'var colors = (1:"red", 2:"green", 3:"blue")', isCorrect: false },
+      { text: 'var colors = 1 = ("red"), 2 = ("green"), 3 = ("blue")', isCorrect: false },
+      { text: 'var colors = "red", "green", "blue"', isCorrect: false },
     ],
   },
   {
     id: 4,
-    question: "Question four",
+    question: "Which event occurs when the user clicks on an HTML element?",
     choices: [
-      { text: "Answer 4-1", isCorrect: false },
-      { text: "Answer 4-2", isCorrect: false },
-      { text: "Answer 4-3", isCorrect: true },
-      { text: "Answer 4-4", isCorrect: false },
+      { text: "onmouseover", isCorrect: false },
+      { text: "onclick", isCorrect: true },
+      { text: "onchange", isCorrect: false },
+      { text: "onmouseclick", isCorrect: false },
+    ],
+  },
+  {
+    id: 5,
+    question: 'How do write an IF statement testing that "i" is NOT equal to 5?',
+    choices: [
+      { text: "if (i <> 5)", isCorrect: false },
+      { text: "if i <> 5", isCorrect: false },
+      { text: "if i =! 5 then", isCorrect: false },
+      { text: "if (i != 5)", isCorrect: true }
     ],
   },
 ];
@@ -48,15 +58,12 @@ const finishSection = document.getElementById("finish");
 const scoresSection = document.getElementById("scores");
 const startOverModal = document.getElementById("start-over-modal");
 
-const question = document.getElementById("question");
-const choices = document.getElementById("choices");
 const result = document.getElementById("result");
 const correctTxt = document.getElementById("correct");
 const wrongTxt = document.getElementById("wrong");
 const scoreList = document.getElementById("score-list");
 
 const startQuizBtn = document.getElementById("quiz-start-btn");
-const choiceBtns = choices.getElementsByTagName("*");
 const nextBtn = document.getElementById("next-btn");
 const submitBtn = document.getElementById("submit-btn");
 const tryAgainBtn = document.getElementById("tryAgain-btn");
@@ -163,7 +170,8 @@ submitBtn.addEventListener("click", () => {
 
 
   // reset currentQuestion and clear initials field
-  currentQuestion = 0;
+  // redundant? currentQuestion = 0;
+  // reset timer
   initialsTxt.value = "";
 
   displayToggle.hide(finishSection);
@@ -209,9 +217,12 @@ clearBtn.addEventListener("click", () => {
 
 function quiz(id) {
   // insert question text
+  const question = document.getElementById("question");
   question.innerText = QuizContent[id].question;
 
   // grab all choice buttons on page
+  const choices = document.getElementById("choices");
+  const choiceBtns = choices.getElementsByTagName("*");
   const choiceItems = document.querySelectorAll(".choice");
 
   // attach text and isCorrect boolean to all buttons
@@ -237,6 +248,7 @@ function quiz(id) {
         displayToggle.hide(wrongTxt);
         console.log("correct! you get one point");
       } else {
+        // time penalty
         displayToggle.show(result);
         displayToggle.hide(correctTxt);
         displayToggle.show(wrongTxt);
